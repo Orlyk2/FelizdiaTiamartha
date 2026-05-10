@@ -3,22 +3,20 @@
 
 <head>
 
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>💖 Para Mi Tía Josefina 💖</title>
+  <title>🌻 Para Mi Tía Martha 🌻</title>
 
   <!-- ICONO -->
-
   <link
     rel="icon"
     type="image/jpg"
     href="https://raw.githubusercontent.com/Orlyk2/FelizdiaTiamartha/e1e8a3530383d5deb6bac9cc22b32d085731c253/IMG_20260510_130747.jpg">
 
   <!-- FUENTE -->
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
 
   <style>
 
@@ -28,47 +26,63 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       font-family:'Poppins',sans-serif;
       overflow-x:hidden;
-      background:linear-gradient(to bottom,#ffe0ea,#ffd1dc,#fff0f5);
+      background:linear-gradient(180deg,#fff9d7,#ffe97d,#fff4bf,#fff9e7);
       color:#333;
+      position:relative;
     }
 
-    /* CORAZONES */
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      background:
+      radial-gradient(circle at top left, rgba(255,255,255,0.7), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(255,215,0,0.25), transparent 35%);
+      z-index:-1;
+    }
 
-    .hearts{
+    /* GIRASOLES */
+
+    .flowers{
       position:fixed;
       width:100%;
       height:100%;
       top:0;
       left:0;
-      pointer-events:none;
       overflow:hidden;
+      pointer-events:none;
       z-index:1;
     }
 
-    .heart{
+    .flower{
       position:absolute;
-      bottom:-50px;
-      color:rgba(255,255,255,0.8);
-      font-size:24px;
-      animation:float 8s linear infinite;
+      bottom:-100px;
+      font-size:42px;
+      animation:float 12s linear infinite;
+      opacity:0.9;
+      filter:drop-shadow(0 0 10px rgba(255,215,0,0.6));
     }
 
     @keyframes float{
 
       0%{
-        transform:translateY(0) scale(0);
+        transform:translateY(0) rotate(0deg) scale(0);
         opacity:0;
       }
 
-      20%{
+      10%{
         opacity:1;
       }
 
       100%{
-        transform:translateY(-120vh) scale(1.5);
+        transform:translateY(-120vh) rotate(360deg) scale(1.5);
         opacity:0;
       }
 
@@ -87,34 +101,62 @@
 
     .hero-bg{
       position:absolute;
-      width:100%;
-      height:100%;
+      inset:0;
       background-image:url('https://raw.githubusercontent.com/Orlyk2/FelizdiaTiamartha/e1e8a3530383d5deb6bac9cc22b32d085731c253/IMG_20260510_130747.jpg');
       background-size:cover;
       background-position:center;
-      filter:blur(2px);
-      transform:scale(1.05);
+      filter:blur(2px) brightness(0.7);
+      transform:scale(1.08);
+      animation:zoomBg 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes zoomBg{
+      from{
+        transform:scale(1.05);
+      }
+
+      to{
+        transform:scale(1.12);
+      }
     }
 
     .overlay{
       position:absolute;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.45);
+      inset:0;
+      background:linear-gradient(to bottom,
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.55));
     }
 
     .hero-content{
       position:relative;
-      z-index:2;
+      z-index:3;
       text-align:center;
       padding:40px;
       color:white;
+      animation:fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
     .hero-content h1{
-      font-size:75px;
-      text-shadow:0 5px 20px rgba(0,0,0,0.5);
-      animation:pulse 2s infinite;
+      font-size:90px;
+      font-weight:900;
+      text-shadow:0 8px 25px rgba(0,0,0,0.6);
+      animation:pulse 3s infinite;
+      background:linear-gradient(to right,#fff,#ffe066,#fff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
     @keyframes pulse{
@@ -124,7 +166,7 @@
       }
 
       50%{
-        transform:scale(1.04);
+        transform:scale(1.03);
       }
 
       100%{
@@ -134,17 +176,17 @@
     }
 
     .hero-content p{
-      margin-top:30px;
-      font-size:28px;
-      line-height:1.8;
-      max-width:900px;
-      text-shadow:0 3px 10px rgba(0,0,0,0.5);
+      margin-top:35px;
+      font-size:30px;
+      line-height:1.9;
+      max-width:950px;
+      text-shadow:0 4px 12px rgba(0,0,0,0.5);
     }
 
     .emoji{
-      margin-top:35px;
-      font-size:60px;
-      animation:bounce 2s infinite;
+      margin-top:40px;
+      font-size:65px;
+      animation:bounce 2.5s infinite;
     }
 
     @keyframes bounce{
@@ -159,11 +201,11 @@
 
     }
 
-    /* FOTO FLOTANTE */
+    /* FOTO */
 
     .floating-photo{
       position:absolute;
-      top:92%;
+      top:93%;
       left:50%;
       transform:translateX(-50%);
       width:380px;
@@ -172,11 +214,12 @@
       background-image:url('https://raw.githubusercontent.com/Orlyk2/FelizdiaTiamartha/e1e8a3530383d5deb6bac9cc22b32d085731c253/IMG_20260510_130747.jpg');
       background-size:cover;
       background-position:center;
-      filter:grayscale(100%);
-      opacity:0.18;
-      z-index:2;
-      animation:floatPhoto 6s ease-in-out infinite;
-      box-shadow:0 0 40px rgba(255,255,255,0.3);
+      border:8px solid rgba(255,255,255,0.9);
+      box-shadow:
+      0 0 25px rgba(255,215,0,0.7),
+      0 0 60px rgba(255,255,255,0.4);
+      z-index:5;
+      animation:floatPhoto 5s ease-in-out infinite;
     }
 
     @keyframes floatPhoto{
@@ -186,7 +229,7 @@
       }
 
       50%{
-        transform:translateX(-50%) translateY(-15px);
+        transform:translateX(-50%) translateY(-18px);
       }
 
       100%{
@@ -195,89 +238,173 @@
 
     }
 
-    /* MENSAJE */
+    /* TARJETAS */
 
-    .message{
+    .message,
+    .video-section{
       width:90%;
       max-width:1200px;
       margin:auto;
-      margin-top:220px;
-      margin-bottom:100px;
-      background:white;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(10px);
       border-radius:35px;
       padding:60px;
       text-align:center;
-      box-shadow:0 15px 40px rgba(0,0,0,0.15);
+      box-shadow:
+      0 15px 45px rgba(0,0,0,0.12),
+      0 0 25px rgba(255,215,0,0.15);
       position:relative;
       z-index:2;
+      overflow:hidden;
     }
 
-    .message h2{
-      font-size:48px;
-      color:#d6004c;
-      margin-bottom:40px;
+    .message::before,
+    .video-section::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:8px;
+      background:linear-gradient(to right,#ffd43b,#ffec99,#ffd43b);
+    }
+
+    .message{
+      margin-top:240px;
+      margin-bottom:100px;
+    }
+
+    .message h2,
+    .video-section h2{
+      font-size:52px;
+      color:#d89b00;
+      margin-bottom:35px;
+      text-shadow:0 3px 10px rgba(255,215,0,0.2);
     }
 
     .message p{
-      font-size:24px;
+      font-size:25px;
       line-height:2;
+      color:#555;
     }
 
-    /* VIDEO */
+    /* VIDEOS */
 
     .video-section{
-      width:90%;
-      max-width:1000px;
-      margin:auto;
       margin-bottom:120px;
-      background:white;
-      border-radius:35px;
-      padding:40px;
-      text-align:center;
-      box-shadow:0 15px 40px rgba(0,0,0,0.15);
-      position:relative;
-      z-index:2;
-    }
-
-    .video-section h2{
-      font-size:45px;
-      color:#d6004c;
-      margin-bottom:25px;
     }
 
     .video-section p{
       font-size:22px;
-      margin-bottom:30px;
+      margin-bottom:35px;
+      color:#666;
     }
 
-    video{
+    .videos{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:35px;
+      align-items:start;
+    }
+
+    .video-card{
+      background:linear-gradient(180deg,#fffce8,#fff6c4);
+      border-radius:30px;
+      padding:25px;
+      transition:0.4s;
+      box-shadow:0 15px 30px rgba(0,0,0,0.1);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .video-card::before{
+      content:'🌻';
+      position:absolute;
+      top:-15px;
+      right:10px;
+      font-size:60px;
+      opacity:0.15;
+    }
+
+    .video-card:hover{
+      transform:translateY(-10px) scale(1.02);
+      box-shadow:0 20px 40px rgba(255,193,7,0.3);
+    }
+
+    .video-card h3{
+      margin-bottom:20px;
+      color:#c98a00;
+      font-size:30px;
+    }
+
+    .video-card video{
       width:100%;
-      border-radius:25px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      height:auto;
+      max-height:75vh;
+      object-fit:contain;
+      border-radius:22px;
+      box-shadow:0 12px 25px rgba(0,0,0,0.2);
+      background:black;
     }
 
     /* FOOTER */
 
     footer{
       text-align:center;
-      padding:80px 20px;
+      padding:90px 20px;
       position:relative;
       z-index:2;
     }
 
     footer h2{
-      font-size:50px;
-      color:#d6004c;
+      font-size:55px;
+      color:#d89b00;
       margin-bottom:25px;
+      text-shadow:0 3px 10px rgba(255,215,0,0.3);
     }
 
     footer p{
       font-size:24px;
+      color:#666;
     }
 
     .footer-emojis{
-      font-size:50px;
+      font-size:55px;
       margin-top:30px;
+      animation:bounce 2.5s infinite;
+    }
+
+    /* BRILLOS */
+
+    .sparkles{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .sparkle{
+      position:absolute;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:white;
+      box-shadow:0 0 12px white;
+      animation:twinkle 3s infinite;
+    }
+
+    @keyframes twinkle{
+
+      0%,100%{
+        opacity:0.2;
+        transform:scale(0.5);
+      }
+
+      50%{
+        opacity:1;
+        transform:scale(1.5);
+      }
+
     }
 
     /* RESPONSIVE */
@@ -285,7 +412,7 @@
     @media(max-width:768px){
 
       .hero-content h1{
-        font-size:42px;
+        font-size:48px;
       }
 
       .hero-content p{
@@ -293,29 +420,48 @@
       }
 
       .floating-photo{
-        width:240px;
-        height:240px;
+        width:230px;
+        height:230px;
+      }
+
+      .message,
+      .video-section{
+        padding:35px;
       }
 
       .message{
         margin-top:150px;
-        padding:35px;
       }
 
-      .message h2{
-        font-size:35px;
+      .message h2,
+      .video-section h2{
+        font-size:36px;
       }
 
       .message p{
         font-size:20px;
       }
 
-      .video-section h2{
-        font-size:35px;
+      footer h2{
+        font-size:36px;
       }
 
-      footer h2{
-        font-size:35px;
+      .footer-emojis{
+        font-size:40px;
+      }
+
+      .videos{
+        grid-template-columns:1fr;
+      }
+
+      .video-card{
+        padding:15px;
+      }
+
+      .video-card video{
+        width:100%;
+        max-height:65vh;
+        border-radius:18px;
       }
 
     }
@@ -326,16 +472,29 @@
 
 <body>
 
-  <!-- CORAZONES -->
+  <!-- BRILLOS -->
 
-  <div class="hearts">
+  <div class="sparkles">
 
-    <div class="heart" style="left:10%; animation-delay:0s;">💖</div>
-    <div class="heart" style="left:20%; animation-delay:2s;">🌸</div>
-    <div class="heart" style="left:35%; animation-delay:4s;">💕</div>
-    <div class="heart" style="left:50%; animation-delay:1s;">❤️</div>
-    <div class="heart" style="left:70%; animation-delay:3s;">💐</div>
-    <div class="heart" style="left:85%; animation-delay:5s;">🌹</div>
+    <div class="sparkle" style="top:10%; left:20%; animation-delay:1s;"></div>
+    <div class="sparkle" style="top:30%; left:80%; animation-delay:2s;"></div>
+    <div class="sparkle" style="top:60%; left:10%; animation-delay:0s;"></div>
+    <div class="sparkle" style="top:80%; left:70%; animation-delay:3s;"></div>
+    <div class="sparkle" style="top:45%; left:50%; animation-delay:1.5s;"></div>
+
+  </div>
+
+  <!-- GIRASOLES -->
+
+  <div class="flowers">
+
+    <div class="flower" style="left:10%; animation-delay:0s;">🌻</div>
+    <div class="flower" style="left:20%; animation-delay:2s;">🌻</div>
+    <div class="flower" style="left:35%; animation-delay:4s;">🌻</div>
+    <div class="flower" style="left:50%; animation-delay:1s;">🌻</div>
+    <div class="flower" style="left:65%; animation-delay:3s;">🌻</div>
+    <div class="flower" style="left:80%; animation-delay:5s;">🌻</div>
+    <div class="flower" style="left:92%; animation-delay:6s;">🌻</div>
 
   </div>
 
@@ -349,24 +508,26 @@
 
     <div class="hero-content">
 
-      <h1>💖 Para Mi Tía Josefina 💖</h1>
+      <h1>🌻 Para Mi Tía Martha 🌻</h1>
 
       <p>
-        No eres solo mi tía...
-        <br><br>
-        Eres mi segunda madre, una mujer maravillosa que siempre estuvo conmigo,
-        apoyándome, cuidándome y regalándome amor en cada momento de mi vida 🌸
+        Más que una tía…<br><br>
+
+        Eres una segunda madre para mí 💛<br><br>
+
+        Gracias por tu cariño, tu apoyo y por iluminar mi vida
+        con tu amor y tu hermosa manera de ser 🌻
       </p>
 
       <div class="emoji">
-        💕 🌹 💖 👑
+        🌻 💛 🌻
       </div>
 
     </div>
 
   </section>
 
-  <!-- FOTO FLOTANTE -->
+  <!-- FOTO -->
 
   <div class="floating-photo"></div>
 
@@ -374,52 +535,78 @@
 
   <section class="message">
 
-    <h2>✨ Un Mensaje Especial ✨</h2>
+    <h2>✨ Querida Tía Martha ✨</h2>
 
     <p>
 
-      Querida tía Josefina 💖
-      <br><br>
-
-      Gracias por todo tu cariño, tu paciencia y por estar presente
-      en tantos momentos importantes de mi vida.
+      Hoy quiero agradecerte por cada momento,
+      cada consejo y cada gesto de amor que has tenido conmigo.
 
       <br><br>
 
-      Siempre has sido una mujer fuerte, noble y llena de amor.
-      Tus consejos, abrazos y palabras han dejado una huella muy especial en mi corazón.
+      Siempre has sido una persona noble,
+      fuerte y llena de luz.
+      Tu cariño ha sido un regalo muy especial en mi vida 💛
 
       <br><br>
 
-      Hoy quiero recordarte cuánto te quiero y lo importante que eres para mí.
-      Porque más que una tía...
-      eres una segunda madre 🌸
+      Gracias por estar presente,
+      por cuidar y por dar tanto amor sin esperar nada a cambio.
 
       <br><br>
 
-      💐 Te quiero muchísimo 💐
+      🌻 Eres una mujer maravillosa 🌻
+
+      <br><br>
+
+      💖 Te quiero muchísimo 💖
 
     </p>
 
   </section>
 
-  <!-- VIDEO -->
+  <!-- VIDEOS -->
 
   <section class="video-section">
 
-    <h2>🎬 Un Video Especial 🎬</h2>
 
-    <p>
-      Un pequeño detalle lleno de cariño para una persona muy especial 💖
     </p>
 
-    <video controls autoplay muted loop>
+    <div class="videos">
 
-      <source
-        src="https://raw.githubusercontent.com/Orlyk2/FelizdiaTiamartha/e1e8a3530383d5deb6bac9cc22b32d085731c253/videoplayback%20(2).mp4"
-        type="video/mp4">
+      <!-- VIDEO 1 -->
 
-    </video>
+      <div class="video-card">
+
+        <h3>🌻 Siempre Especial 🌻</h3>
+
+        <video controls autoplay muted loop playsinline>
+
+          <source
+            src="https://raw.githubusercontent.com/Orlyk2/FelizdiaTiamartha/e1e8a3530383d5deb6bac9cc22b32d085731c253/videoplayback%20(2).mp4"
+            type="video/mp4">
+
+        </video>
+
+      </div>
+
+      <!-- VIDEO 2 -->
+
+      <div class="video-card">
+
+        <h3>💛 Feliz Día 💛</h3>
+
+        <video controls autoplay muted loop playsinline>
+
+          <source
+            src="https://raw.githubusercontent.com/Orlyk2/FelizdiaTiamartha/31571af0ef2f347c27f116e68c88a9af4a4a2f90/feliz-dia-de-la-madre-para-ti-ytshorts.savetube.vip.mp4"
+            type="video/mp4">
+
+        </video>
+
+      </div>
+
+    </div>
 
   </section>
 
@@ -428,19 +615,19 @@
   <footer>
 
     <h2>
-      🌹 Gracias por tanto amor 🌹
+      Gracias por tanto cariño 💛
     </h2>
 
     <p>
-      Con muchísimo cariño ❤️
+      Con mucho amor para ti 🌻
     </p>
 
     <div class="footer-emojis">
-      💖 🌸 💕 👑 💐
+      🌻 💖 🌻
     </div>
 
   </footer>
 
 </body>
 
-  </html>
+</html>
